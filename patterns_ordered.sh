@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# HEREDOCs specify AWK pattern components
 _awk_pattern() {
 cat << BEGIN
     BEGIN { C_PATTERN=0 }
@@ -8,11 +9,11 @@ BEGIN
 LAST_INDEX=$((${#PATTERNS[@]} - 1))
 for INDEX in ${!PATTERNS[@]};do
 [[ ${INDEX} == ${LAST_INDEX} ]] && break
-cat << TEMPLATE
+cat << BODY
     /${PATTERNS[INDEX]}/ {
         if ( C_PATTERN ==  ${INDEX} ) { ++C_PATTERN;next }
     }
-TEMPLATE
+BODY
 done
 
 cat << END
