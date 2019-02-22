@@ -18,7 +18,7 @@ END
 }
 
 # Argument list: [FILE] [PATTERN1] ...
-# Prints number of patterns matched where patterns are asserted in order out of total passed
+# Prints patterns matched out of total
 # Use return code to determine if all patterns were matched
 patterns_ordered() {
     local FILE=$1;shift
@@ -27,7 +27,7 @@ patterns_ordered() {
       PATTERNS+=("${PATTERN}")
     done
     local PATTERN_NUMBER=$(cat ${FILE} | awk "$(_awk_pattern)")
-    echo "${PATTERN_NUMBER} out of ${#PATTERNS[@]} matched"
+    echo "${PATTERN_NUMBER} out of ${#PATTERNS[@]} pattern(s) matched"
     if [[ ${#PATTERNS[@]} != ${PATTERN_NUMBER} ]];then
         return 1
     fi
