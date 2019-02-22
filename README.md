@@ -1,7 +1,15 @@
-**NOTE:** My local environment is using a `mbp` so these serve the purpose of simplifying Bash 3.X, but should be portable for other shells as well.
+**NOTE:** My local environment is a `mbp` so these serve the purpose of simplifying the default Bash 3.X shell, but should be portable for other shells as well.
 
 # Utilities
 - `patterns_ordered.sh`
-    - This utility accepts a parameters list as follows: `[FILE] [PATTERN1] ...` and prints the number of patterns matched out of the total. The return code will indicate if all patterns were matched.
-    - Assertions are made in order to ensure that patterns appear logically within a file. The patterns passed in are regex expressions within the `awk` utility.
+    ```
+    Options List
+    `-m`        - Get all matches within file (Loops over pattern list)
+    `-a`        - Allow spaces between patterns
+    `-l <LINE>` - Specify line to start file read
+    ```
+    - Usage: `[OPT] [FILE] [PATTERN1] ...`
+    - Specify `-` as `[FILE]` for stdin 
+    - Return code 0 will indicate if all patterns were matched
+    - Patterns are regex expressions as permitted within the `awk` utility.
 
