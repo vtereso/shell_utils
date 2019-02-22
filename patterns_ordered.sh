@@ -18,12 +18,17 @@ END
 }
 
 # Argument list: [FILE] [PATTERN1] ...
-# Returns number of patterns matched where patterns are asserted in order
+# Prints number of patterns matched where patterns are asserted in order out of total passed
+# Use return code to determine if all patterns were matched
 patterns_ordered() {
-    FILE=$1;shift
-    PATTERNS=()
+    local FILE=$1;shift
+    local PATTERNS=()
     for PATTERN in "$@";do
       PATTERNS+=("${PATTERN}")
     done
-    cat $FILE | awk "$(_awk_pattern)"
+    local PATTERN_NUMBER=$(cat ${FILE} | awk "$(_awk_pattern)")
+    echo "${PATTERN_NUMBER} out of ${#PATTERNS[@]} matched"
+    if [[ ${#PATTERNS[@]} != ${PATTERN_NUMBER} ]];then
+        return 1
+    fi
 }
