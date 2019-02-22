@@ -21,6 +21,9 @@ END
 # Returns number of patterns matched where patterns are asserted in order
 patterns_ordered() {
     FILE=$1;shift
-    PATTERNS=($@)
+    PATTERNS=()
+    for PATTERN in "$@";do
+      PATTERNS+=("${PATTERN}")
+    done
     cat $FILE | awk "$(_awk_pattern)"
 }
