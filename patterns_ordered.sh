@@ -21,7 +21,7 @@ END
 # Prints patterns matched out of total
 # Use return code to determine if all patterns were matched
 patterns_ordered() {
-    local FILE=$1;shift
+    local FILE=$1;shiftg
     local PATTERNS=()
     for PATTERN in "$@";do
       PATTERNS+=("${PATTERN}")
