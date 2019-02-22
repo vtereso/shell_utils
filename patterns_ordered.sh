@@ -18,7 +18,7 @@ END
 }
 
 # Argument list: [FILE] [PATTERN1] ...
-# Prints patterns matched out of total
+# Prints pattern(s) matched out of total
 # Use return code to determine if all patterns were matched
 patterns_ordered() {
     local FILE=$1;shiftg
