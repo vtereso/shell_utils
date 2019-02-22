@@ -49,10 +49,10 @@ patterns_ordered() {
     while getopts "mal:" OPTION; do
     case "$OPTION" in
     m)
-        MULTI_MATCH=1
+        local MULTI_MATCH=1
         ;;
     a)
-        ALLOW_SPACE=1
+        local ALLOW_SPACE=1
         ;;
     l)
         if [[ ${OPTARG} =~ [1-9][0-9]* ]];then
