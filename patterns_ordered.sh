@@ -59,12 +59,12 @@ patterns_ordered() {
         if [[ ${OPTARG} =~ [1-9][0-9]* ]];then
             LINE_START=${OPTARG}
         else
-            echo "Invalid -l value [${OPTARG}] provided"
+            echo "Invalid -l value [${OPTARG}] provided" >&2
             return 1
         fi
         ;;
     *)
-        echo "Invalid flag [${OPTARG}] provided"
+        echo "Invalid flag [${OPTARG}] provided" >&2
         return 1
         ;;
     esac
@@ -76,7 +76,7 @@ patterns_ordered() {
     if [[ ${FILE} == '-' ]];then
         FILE=
     elif [[ ! -f ${FILE} ]];then
-        echo "Invalid file argument"
+        echo "Invalid file argument" >&2
         return 1
     fi
 
