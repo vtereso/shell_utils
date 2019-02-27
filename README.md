@@ -11,5 +11,6 @@
     - Usage: `[OPT] [FILE] [PATTERN1] ...`
     - Specify `-` as `[FILE]` for stdin 
     - Return code 0 will indicate if all patterns were matched
+    - Stdout will emmunerate the last line(s) at which the pattern list was satified
     - Patterns are regex expressions as permitted within the `awk` utility.
 
